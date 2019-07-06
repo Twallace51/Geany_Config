@@ -1,0 +1,31 @@
+
+Inheritance:
+    QtCore.QObject                      "../../QtCore/QObject/README.gny"
+    QtGui.QPaintDevice                  "../../QtGui/QPaintDevice/README.gny"
+    .   QtWidgets.QWidget               "../../QtWidgets/QWidget/README.gny"
+    .       QtWidgets.QProgressBar      "../../QtWidgets/QProgressBar/README.gny"
+
+    QtCore.QObject                      "../../QtCore/QObject/README.gny"
+    QtGui.QPaintDevice                  "../../QtGui/QPaintDevice/README.gny"
+    .   QtWidgets.QAbstractButton       "../../QtWidgets/QAbstractButton/README.gny"
+    .       QtWidgets.QPushButton       "../../QtWidgets/QPushButton/README.gny"
+
+    QtCore.QObject                              "../../QtCore/QObject/README.gny"
+    QtGui.QPaintDevice                          "../../QtGui/QPaintDevice/README.gny"
+    .   QtWidgets.QAbstractButton               "../../QtWidgets/QAbstractButton/README.gny"
+    .       QtWidgets.QFrame                    "../../QtWidgets/QFrame/README.gny"
+    .           QtWidgets.QAbstractScrollArea
+    .               QtWidgets.QAbstractItemView
+    .                   QtWidgets.QTableView
+
+Inheritance:
+    QtCore.QObject                          "../../QtCore/QObject/README.gny"
+    .   QtCore.QAbstractItemModel           "../../QtCore/QAbstractItemModel/README.gny"
+    .       QtCore.QAbstractTableModel      "../../QtCore/QAbstractTableModel/README.gny"
+    .           QtSql.QSqlQueryModel        "../../QtSql/QSqlQueryModel/README.gny"
+    .               QtSql.QSqlTableModel    "../../QtSql/QSqlTableModel/README.gny"
+    .                   QSqlRelationalTableModel
+
+
+
+    Inherited by:

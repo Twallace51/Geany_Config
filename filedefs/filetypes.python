@@ -1,0 +1,16 @@
+[build-menu]
+FT_00_LB=
+FT_00_CM=
+FT_00_WD=
+EX_00_LB=Python3.7
+EX_00_CM=python3.7 "%f"
+EX_00_WD=
+FT_02_LB=Pylint3
+FT_02_CM=\spylint3 --rcfile=~/mylintrc  "%f"
+FT_02_WD=
+FT_01_LB=autopep8
+FT_01_CM=autopep8 --in-place --aggressive --aggressive --max-line-length 240 "%f"
+FT_01_WD=
+EX_01_LB=ipython
+EX_01_CM=ipython "%f"
+EX_01_WD=
