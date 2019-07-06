@@ -11,4 +11,6 @@ These are customized files in my ~/.config/geany directory,  for:
        
     using git as backup manager
         with working space on a USB SSD and the remote repo in local hard disk.
+        
+Read ConfiguringGeany.gny file for details ....
        
