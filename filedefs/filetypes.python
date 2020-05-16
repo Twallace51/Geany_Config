@@ -1,16 +1,58 @@
+
+[styling]
+#    syntax:  local style <= named colorscheme style
+#    following do not take colors directly,  only named styles from current colorscheme
+
+default=default
+
+# single quote 'string'
+string_1=string_1
+
+# double quote "string"
+string=string
+
+# single quote ' or " in line
+stringeol=string_eol
+
+# triple single quotes color
+triple=triple
+
+# triple double quotes color
+tripledouble=tripledouble
+
+operator=gold;;true
+
+word=keyword_1
+word2=keyword_2
+
+commentline=comment_line
+
+character=character
+fstring=string_1
+fcharacter=character
+ftriple=keyword_1
+ftripledouble=keyword_1
+
+classname=type
+defname=function
+identifier=identifier_1
+commentblock=comment
+
+decorator=decorator
+
 [build-menu]
-FT_00_LB=
-FT_00_CM=
+FT_00_LB=black
+FT_00_CM=black --line-length 240  "%f"
 FT_00_WD=
-EX_00_LB=Python3.7
-EX_00_CM=python3.7 "%f"
+EX_00_LB=Python3.8
+EX_00_CM=python3.8 "%f"
 EX_00_WD=
 FT_02_LB=Pylint3
-FT_02_CM=\spylint3 --rcfile=~/mylintrc  "%f"
+FT_02_CM=\spylint -j8 --rcfile=~/.pylintrc  "%f"
 FT_02_WD=
 FT_01_LB=autopep8
 FT_01_CM=autopep8 --in-place --aggressive --aggressive --max-line-length 240 "%f"
 FT_01_WD=
-EX_01_LB=ipython
-EX_01_CM=ipython "%f"
+EX_01_LB=
+EX_01_CM=
 EX_01_WD=

@@ -1,0 +1,28 @@
+Color highlighting of code and documentation,  makes them easier to read and understand:
+
+Following assumes using a customized Geany,  as described in:
+    ""
+
+For example,  open following in geany to see color highlight results for different file extensions ....
+
+     "color_test.gny"
+
+     "color_test.py"
+
+     "color_test.txt"
+
+     "color_test.sh"
+
+     "color_test.README"
+
+Note: the '*.gny' file type is a custom extension for python related text documents,
+configured to have color highlighting very similar to '*.py' code highlighting
+
+
+Highlighting also helps to identify/open file and URL links,  try following:
+
+    Right mouse button click on following,  then click 'Open Selected File'
+        "../geany.conf"
+
+    Right mouse button click on following,  then click 'Open URI'
+        "www.geany.org"
