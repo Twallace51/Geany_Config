@@ -1,2 +1,15 @@
-There are several template files in this directory. For these templates you can use wildcards.
-For more information read the documentation (in /usr/share/doc/geany/html/index.html or visit http://www.geany.org/).
+There are several template files in this directory.
+For these templates you can use wildcards.
+
+For more information read the documentation in
+
+    "/usr/share/doc/geany/html/index.html"
+    
+    or visit
+    
+    "http://www.geany.org/"
+
+Disable default templates by renaming:
+
+    sudo cd /usr/share/geany/templates
+    sudo mv -v files files.bak

@@ -1,0 +1,56 @@
+Geany
+
+Description:
+    Geany is a coding editor,
+        with
+            indent based code folding
+            syntax and keyword highlighting
+        without
+            the often distracting extra features in a full blown IDEs.
+
+    Standard Geany can be configured to be an even better editor for:
+        Python code
+        documentation files
+
+    For example,  you can enable the opening of the following,  with a right mouse click:
+        web addresses in your favorite web browser (Firefox-browser)
+            "https://www.geany.org/"
+        local files,  in your favorite editor      (Geany  - emoji  ;-) )
+            "Doc_Style.gny"
+
+    It has been customized here to support the following coding and documentation styles:
+        See "Doc_Style.gny"
+        See "Coding_Style.gny"
+
+    Note: Wings Pro and Visual Studio Code can be configured to be ~almost~ equivalents to Geany ...
+        "../VSCode/_README.gny"
+
+References:
+    "https://www.geany.org/"
+    "geany_manual.gny" <- downloaded and adapted Geany documentation - version 1.35
+
+Instalation:
+    '''
+    sudo apt-get install --assume-yes geany geany-plugin-automark geany-plugin-addons geany-plugin-vc geany-plugin-common
+    '''
+    or if geany packages are already in '/var/cache/apt/archives'
+    '''
+    cd /var/cache/apt/archives
+    sudo gdebi geany*
+    '''
+
+Configuration:
+    After installing standard Geany, there are two configuration options:
+
+        Simple Copy/Paste
+
+            The 'ConfigurationFilesBackup' folder has geany files already configured based on the above,
+                and ready for copying to/replacing your '~/.config/geany'  folder.
+                "geany/_README.gny"
+
+            Also, disable default templates under Menu>File>New(with Template)
+                "see ConfigurationFilesBackup/templates/templates.README"
+
+        Manually
+            Right click on following file for the manual configuration details ....
+                "ConfiguringGeany.gny"

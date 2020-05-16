@@ -1,0 +1,30 @@
+highlighting for *.README   files using customized config files:
+    my_dark.conf             colorscheme
+    filetypes.Geany.conf     filetype definition
+
+                usage
+-------------------------------
+default         original text
+
+'string_1       emphasis'
+
+"string         clickable file paths and URLS"
+
+# comment       alert
+
+'''
+multilines      example code
+'''
+
+"""
+multilines      personal observations
+"""
+
+keywords        Note: Description:
+
+keywords2       one two three
+
+operators       = < > ) ( * .  / ; : [ ]
+
+' string_eol   black on white           ?
+" string_eol

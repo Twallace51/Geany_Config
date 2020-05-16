@@ -1,11 +1,11 @@
-My Geany Configuration
+My Geany Configuration - manual version
 
 Return link to Code Editors:
-    "../README.gny"
+    "../_README.gny"
 
 References:
-    '''https://www.geany.org/'''
-    '''http://go-lang.cat-v.org/text-editors/geany/'''
+    "https://www.geany.org/"
+    "http://go-lang.cat-v.org/text-editors/geany/"
 
 Problem:
     Python code
@@ -15,237 +15,284 @@ Problem:
         with blocks of example code that are not easily executable ...
 
 Solution:
-    An editor that manages both text and code files:
+    An editor that manages both documentation and code files:
         with code folding based on indentation (Python type)
         right click option, to open file pathnames, both relative and absolute,  directly in editor
-        right click on htttp://web_address,  to open address in a given web browser
+        right click on http://web_address,  to open address in a given web browser
         syntax highlighting for Python files -  *.py
         keyword highlighting for document files - *.txt, *.hlp, *.gny
 
     Note:
         I selected the *.gny extension to emphasize that a given text file is best reviewed
             with a custom configured Geany,  as described here...
-        I selected the *.hlp extension for the documentation retrieved from Python source code by:
-            '>>> help(module_name)
+        I selected the *.hlp extension for the documentation retrieved from Python and PySide2 source code by:
+            ''' help(module_name)'''
 
+My environment:    'twallace51@gmail.com'
+    Linux Mint
+    pylint3
+    autopep8
+    black
+    dolphin file manager
+    firefox
+    geany
 
-Following describes my custom configuration for Geany ....
-    Done with support from Linux Mint, pylint3, dolphin and chromium-browser.
-    twallace51@gmail.com
+Following describes my custom configuration for Geany.
+    You can either:
+         copy my configuration files
+         and/or manually update the default configuration
 
-To install my custom configuration files described below directly from backups,  see
-    "ConfigurationFilesBackup/README.gny"
+    Copy custom configuration:
+        You can install my custom configuration files as described below,  directly from my backups:
+        "geany/_README.gny"
+        then optionally continue to configure/confirm Geany and plugins manually below ...
 
-To configure Geany manually:
+    Manual configuration:
+        Install Geany with ....
+            '''
+            sudo apt-get install --assume-yes geany geany-plugin-automark geany-plugin-addons geany-plugin-vc geany-plugin-common
+            '''
+            or if geany packages already in '/var/cache/apt/archives'
+            '''
+            cd /var/cache/apt/archives
+            sudo gdebi geany*
+            '''
+        Then open Geany and click on MenuBar > :
 
-    Install and open Geany with ....
-        '$ sudo apt-get install geany geany-addons geany-plugins geany-plugin-addons
+            Edit > Preferences >
+                and edit following:
 
-    Then click on MenuBar > :
+                Interface > Message Window >
+                    click [x] Right         # tall message window is easier to read than a wide short one,  on a large screen
 
-        Edit > Preferences >
-            and edit following:
+                Editor > Display
+                    [ ] Show Indention Guides  # uncheck,  since distracting in documents
 
-            Interface > Message Window >
-                click [x] Right         # tall is easier to read than wide,  on a large screen
+                Files > Saving Files >
+                    [x] strip trailing spaces and tabs  # to help comply with pylint3
+                    [x] replace tabs with spaces
 
-            Editor > Display
-                [x] Show Indention Guides
+                Tools > Tool Paths >
+                    set Browser to             chromium-browser      # or Firefox if prefer
 
-            Files > Saving Files >
-                [x] strip trailing spaces and tabs  # to help comply with pylint3
-                [x] replace tab with space
+                Terminal
+                    [x] Execute programs in the VTE   # to enable environment variables like PYTHONPATH in .bash_aliases
 
-            Tools > Tool Paths >
-                set Browser to             chromium-browser      # or Firefox if prefer
+                Keybindings >    # Note: many of common keybindings are included by defualt,
+                    #eg for Run, Find, Find Next, Select All, Cut, Copy, Paste, etc
+                    Editor
+                        Delete current line(s)    Alt-D
+                    Format
+                        Increase indent           Alt-I                 # note that the Tab key is equivalent
+                        Decrease indent           Shift-ISO_Left_Tab    # note backspace key seems to be equivalent
+                    Document
+                        Fold all                  Alt-C
+                        Unfold all                Alt-X
+                    GoTo
+                        Go to line                Alt-G
 
-            Tools > Commands >
-                set Context Action to      chromium-browser %s
-                #Now available:
-                # click-drag on a valid web address   -> selects address
-                # right clicking on address           -> opens a popup menu
-                # clicking Context Action             -> opens address in given web browser
-                Also Note:
-                # right clicking on the pathname of a file  -> opens the popup menu
-                # clicking on Open Selected                 -> opens the file in Geany
-                ...
+            Tools > Plugin Manager >
+                "https://www.geany.org/support/plugins/"
+                Plugins shipped with Geany:
+                    Classbuilder - Creates source files for new class types
+                    Export - Exports the current file into different formats
+                    Filebrowser - Adds a file browser tab to the sidebar
+                    HTML Characters - Inserts HTML character entities like '&'
+                    Save Actions - Provides different actions related to saving files (autosave, instantsave, backupcopy)
+                    Split Window - Splits the editor view into two windows
 
-            Keybindings >    # Note: many of common keybindings are included by defualt,
-                #eg for Run, Find, Find Next, Select All, Cut, Copy, Paste, etc
-                Editor
-                    Delete current line(s)    Alt-D
-                Format
-                    Increase indent           Alt-I                 # note that the Tab key is equivalent
-                    Decrease indent           Shift-ISO_Left_Tab    # note backspace key seems to be equivalent
-                Document
-                    Fold all                  Alt-C
-                    Unfold all                Alt-X
-                GoTo
-                    Go to line                Alt-G
+                If not already done,  install package "geany-plugins" with Synaptic or sudo apt-get.
+                Then of the many available plugins,  enable the most useful,  eg:
+                    Add-ons             # many simple additions,  including opening URLs, tasks search ...
+                        "https://plugins.geany.org/addons.html"
+                    AutoMark            # highlight current selection,  wherever occurs in file
+                        "https://plugins.geany.org/automark.html"
+                    Doc                 # open browser search on current word under cursor
+                        "https://plugins.geany.org/geanydoc.html"
+                    ExtraSelection
+                        "https://plugins.geany.org/geanyextrasel.html"
+                    GeanyVC             # git interface
+                        "https://plugins.geany.org/geanyvc.html"
+                    Git Change Bar      # highlights uncommited changes in a file tracked by git
+                        "https://plugins.geany.org/git-changebar.html"
+                    Tree Browser
+                        "https://plugins.geany.org/treebrowser.html"
 
-        Edit > Plugin Preferences >
-            FileBrowser
-                dolphin "%d"                            # I like the split screen option in dolphin from KDE
-            TreeBrowser
-                dolphin "%d"
+            Edit > Plugin Preferences >
+                Addons
+                    [x] Show 'Open URI' option in editor menu
+                    [x] Show Tasks in all open documents
+                    Note: Open Tasks tab in Messages window to show wherever 'TODO' or 'FIXME' keywords are found
+                FileBrowser
+                    dolphin "%d"                            # I like the split screen option in dolphin from KDE
+                TreeBrowser
+                    dolphin "%d"
 
-        Tools > Plugin Manager >
-            If not already done,  install package "geany-plugins" with Synaptic or sudo apt-get.
-            Then of the many available plugins,  enable the most useful,  eg:
-                Add-ons             # many simple additions,  including opening URLs
-                    """https://plugins.geany.org/addons.html"""
-                SplitWindow         # enables split window option
+            Tools > Configuration Files > Filetype Configuration > Scripting Languages > filetypes.python
+                # assumes: default pylintrc configuration modified and saved as ~/mylintrc
 
-                AutoMark            # highlight selection wherever occurs in file
-                    """https://plugins.geany.org/automark.html"""
-                GeanyVC             # git interface
-                    """https://plugins.geany.org/geanyvc.html"""
+                Update filetypes.python file for following:
 
-        Tools > Configuration Files > Filetype Configuration > Scripting Languages > filetypes.python
-            # assumes:
-            #   default pylintrc configuration modified and saved as ~/mylintrc
-            #   pylint3 and autopep8 will be installed and used ....
-            Update file for following:
+                    [build-menu]
+                    FT_00_LB=black
+                    FT_00_CM=black -S --line-length 240 "%f"
+                    FT_00_WD=
+                    EX_00_LB=Python3.8
+                    EX_00_CM=python3.8 "%f"
+                    EX_00_WD=
+                    FT_02_LB=Pylint3
+                    FT_02_CM=pylint3 --rcfile=~/mylintrc  "%f"
+                    FT_02_WD=
+                    FT_01_LB=autopep8
+                    FT_01_CM=autopep8 --in-place --aggressive --aggressive --max-line-length 240 "%f"
+                    FT_01_WD=
+                    EX_01_LB=
+                    EX_01_CM=
+                    EX_01_WD=
+                # black, pylint3 and autopep8 will be configured and appear in build menu ....
 
-                [build-menu]
-                EX_00_LB=_Execute
-                EX_00_CM=python3.7 "%f"
-                EX_00_WD=
-                FT_00_LB=pylint3
-                FT_00_CM=pylint3 --rcfile=~/mylintrc  "%f"
-                FT_00_WD=
-                FT_02_LB=
-                FT_02_CM=
-                FT_02_WD=
-                FT_01_LB=autopep8
-                FT_01_CM=python3.7 -m autopep8 --in-place --aggressive --aggressive --max-line-length 240 "%f"
-                FT_01_WD=
+            Tools > Configuration Files > Filetype Configuration > Scripting Languages > filetypes.sh
+                update to show following:
 
-        Tools > Configuration Files > Filetype Configuration > Scripting Languages > filetypes.sh
-            update to show following:
+                    [build-menu]
+                    EX_00_LB=Bash
+                    EX_00_CM=bash "%f"
+                    EX_00_WD=
 
-                [build-menu]
-                EX_00_LB=Bash
-                EX_00_CM=bash "%f"
-                EX_00_WD=
+            Tools > Configuration Files > snippets.conf
+                add following for Txt filetype (See below):
 
-        Tools > Configuration Files > snippets.conf
-            add following for Txt filetype (See below):
+                    [Python]
+                    for=for i in xrange(%cursor%):\n\t
+                    if=if %cursor%:\n\t
+                    elif=elif %cursor%:\n\t
+                    else=else:\n\t
+                    while=while %cursor%:\n\t
+                    try=try:\n\t%cursor%\nexcept Exception, ex:\n\t
+                    with=with %cursor%:\n\t
+                    def=def %cursor% (%cursor%):\n\t""" Function docstring """\n\t
+                    adap="""Adapted by:\n twallace51@gmail.com\nusing Lubuntu20.04, Python 3.8.2, PySide2,  geany and pylint3 as IDE\n"""
 
-                [Txt]
-                return=Return to\s:\n\t"..\README.gny"
+                    [Txt]
+                    ret=Return link to :\n\t"../_README.gny"
+                    ref=References:\n\t".hlp"\n\t"https://doc.qt.io/qtforpython/PySide2/QtWidgets/.html"\n\t"https://doc.qt.io/qt-5/.html"
+                    adap="""Adapted by:\n twallace51@gmail.com\nusing Lubuntu20.04, Python 3.8.2, PySide2,  geany and pylint3 as IDE\n"""
 
-        File > New (with template) >
-            Note:
-            To see your custom templates in Geany File menu, save your templates in
-                "~/.config/geany/templates/files"
+            File > New (with template) >
+                Note:
+                To see your custom templates in Geany File menu, save your templates in
+                    '~/.config/geany/templates/files'
 
-            To put your custom templates ~above~ the defaults in the template list,
-            use an initial underline character in your template`s name,  for example:
-                _pure_python.py
-                _PySide2.py
+                To put your custom templates ~above~ the defaults in the template list,
+                use an initial underline character in your template`s name,  for example:
+                    _pure_python.py
+                    _PySide2.py
 
-            An alternative is to hide the default templates by opening terminal and entering:
-                '$ sudo mv --verbose /usr/share/geany/templates/files  /usr/share/geany/templates/files.bak
-                '$ sudo mkdir --verbose /usr/share/geany/templates/files
-            Then,  only the template files you put in
-                "~/.config/geany/templates/files"
-            will be visible.
+                An alternative is to hide the default templates by opening terminal and entering:
+                    '''
+                    sudo mv --verbose /usr/share/geany/templates/files  /usr/share/geany/templates/files.bak
+                    sudo mkdir --verbose /usr/share/geany/templates/files
+                    '''
+                Then,  only the template files you put in
+                    '~/.config/geany/templates/files'
+                will be visible for this menu option.
 
-        Optional - Color Schemes:
-            Options:
-                You can get color scheme files from:
-                    '''https://wiki.geany.org/themes/start'''
-                    '''https://github.com/codebrainz/geany-themes'''
+            Optional - Color Schemes:
+                "see ../Coding_and_Syntax_Style.gny"
+                Options:
+                    You can get color scheme files from:
+                        "https://wiki.geany.org/themes/start"
+                        "https://github.com/codebrainz/geany-themes"
 
-                use/edit the Alternate scheme from:
-                    "/usr/share/geany/colorschemes/alt.conf"
+                    use/edit the Alternate scheme from:
+                        "/usr/share/geany/colorschemes/alt.conf"
 
-                or, if you prefer the default highlight colors,  but on a dark background,  try:
-                    "ConfigurationFilesBackup/colorschemes/dark_default.conf"
+                    or, if you prefer the default highlight colors,  but on a dark background,  try:
+                        "ConfigurationFilesBackup/colorschemes/dark_default.conf"
 
-            In any case,  just copy the *.conf file(s) directly into your directory:
-                "~/.config/geany/colorschemes"
+                In any case,  just copy the *.conf file(s) directly into your directory
+                    '~/.config/geany/colorscheme'
 
-                They will immediately be available from the menu bar under:
-                MenuBar -> View → Change Color Scheme
+                    They will immediately be available from the menu bar under:
+                    MenuBar -> View → Change Color Scheme
 
-            They can be edited for different colors,
-                see [named_colors] section of documentation at:
-                    Copy following to Terminal:
-                        chromium-browser /usr/share/doc/geany/html/index.html
-                    or select and right-click > Context Action on:
-                        '''https://www.geany.org/manual/current/index.html'''
+                They can be edited for different colors,
+                    see [named_colors] section of documentation at:
+                        Copy following to a Terminal:
+                            chromium-browser /usr/share/doc/geany/html/index.html
+                        or right-click on following > click on Open URI:
+                            "https://www.geany.org/manual/current/index.html"
 
-        Enable folding and simple syntax coloring for *.txt, *.hlp and *.gny files
-            ======================================================================
-            Easy Option:
-            ======================================================================
-                Click on Menu > Tools > Configuration Files > filetype_extensions.conf
-                Look for
-                    Python=*.py;*.pyw;SConstruct;SConscript;wscript;
-                replace with
-                    Python=*.py;*.pyw;SConstruct;SConscript;wscript;*.txt;*.hlp;*.gny
-            ======================================================================
-            Better Option:  # based on    http://go-lang.cat-v.org/text-editors/geany/
-            ======================================================================
-                On bash command line:
-                    Copy Geany global config file to local configuration directory - so any changes are now local:
-                        cp -v    /usr/share/geany/filetype_extensions.conf      ~/.config/geany
-                    Copy and rename following:
-                        cp -v    /usr/share/geany/filedefs/filetypes.python    ~/.config/geany/filedefs/filetypes.Txt.conf
+            Enable folding and simple syntax coloring for *.txt, *.hlp and *.gny files
+                ======================================================================
+                Easy Option:
+                ======================================================================
+                    Click on Menu > Tools > Configuration Files > filetype_extensions.conf
+                    Look for
+                        Python=*.py;*.pyw;SConstruct;SConscript;wscript;
+                    replace with
+                        Python=*.py;*.pyw;SConstruct;SConscript;wscript;*.txt;*.hlp;*.gny
+                ======================================================================
+                Better Option:  # based on    "http://go-lang.cat-v.org/text-editors/geany/"
+                ======================================================================
+                    On bash command line:
+                        Copy Geany global config file to local configuration directory - so any changes are now local:
+                            '''cp -v    /usr/share/geany/filetype_extensions.conf      ~/.config/geany'''
+                        Copy and rename following:
+                            '''cp -v    /usr/share/geany/filedefs/filetypes.python    ~/.config/geany/filedefs/filetypes.Txt.conf'''
 
-                    Note: Once these files have been copied,  they can be updated later under
-                        Geany > MenuBar > Tools > Configuration Files > ...
+                        Note: Once these files have been copied,  they can be updated later under
+                            Geany > MenuBar > Tools > Configuration Files > ...
 
-                Add following to  ~/.config/geany/filetype_extensions.conf:
-                    Txt=*.txt;*.hlp;*.gny;             # between Tcl=... and Txt2tags=...
+                    Add following to  ~/.config/geany/filetype_extensions.conf,  between Tcl=... and Txt2tags=...:
+                        Txt=*.txt;*.hlp;*.gny;
 
-                Edit following in  ~/.config/geany/filedefs/filetypes.Txt.conf:
-                    Comment out keywords list,  so will not be highlighted
-                        [keywords]
-                        #primary=....
-                        #identifiers=....
-                        ...
-                    or replace with your own keywords,  eg my favorites:
-                        primary = Note Warning Syntax Examples Description Goal References Usage Instalation Configuration Details Classes Suggestion Return Inheritance
+                    Edit following in  ~/.config/geany/filedefs/filetypes.Txt.conf:
+                        Comment out keywords list,  so will not be highlighted
+                            [keywords]
+                            #primary=....
+                            #identifiers=....
+                            ...
+                        or replace with your own keywords,  eg my favorites:
+                            primary = Note Warning Syntax Examples Description Goal References Usage Instalation Configuration Details Classes Suggestion Return Inheritance
 
-                    Enable python style folding and highligting
-                        [settings]
-                        extension=txt,hlp,gny
-                        lexer_filetype=Python
+                        Enable python style folding and highligting
+                            [settings]
+                            extension=txt,hlp,gny
+                            lexer_filetype=Python
 
-                    Remove any build commands found here:
-                        [build-menu]
-                        FT_00_LB=
-                        FT_00_CM=
-                        FT_00_WD=
-                        FT_02_LB=
-                        FT_02_CM=
-                        FT_02_WD=
-                        EX_00_LB=
-                        EX_00_CM=
-                        EX_00_WD=
+                        Remove any build commands found here:
+                            [build-menu]
+                            FT_00_LB=
+                            FT_00_CM=
+                            FT_00_WD=
+                            FT_02_LB=
+                            FT_02_CM=
+                            FT_02_WD=
+                            EX_00_LB=
+                            EX_00_CM=
+                            EX_00_WD=
+
 
 Extras:
+
     You can add frequently used commands to Menu > Build,
-    for example to find files recursively from current directory:
-        all *.gny and *.py files with the keyword for notes to myself,  eg #TW
-        all python example files local to current class
+    for example to find and open files recursively from current directory:
+        all python example *.py files,  local or sublocal to current directory.
         See below ....
 
-    Update following in ~/.config/geany/geany.conf:
+    Update following in '~/.config/geany/geany.conf':
         [build-menu]
         number_ft_menu_items=0
         number_non_ft_menu_items=0
         number_exec_menu_items=0
-        NF_00_LB=Find #TW local recursive
-        NF_00_CM=geany $( egrep -l --recursive "#TW" --include=*.gny --include=*.py )
+        NF_00_LB=
+        NF_00_CM=
         NF_00_WD=
         NF_01_LB=
         NF_01_CM=
         NF_01_WD=
-        NF_02_LB=Find local *.py
+        NF_02_LB=Find local example *.py
         NF_02_CM=geany $( find . -name '*.py' )
         NF_02_WD=
         NF_03_LB=
